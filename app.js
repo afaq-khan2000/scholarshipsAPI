@@ -13,7 +13,7 @@ var scholarshipsRouter = require("./routes/api/scholarships");
 var app = express();
 
 mongoose
-  .connect(process.env.MONGODB_URI || config.get("db"))
+  .connect(config.get("db"))
   .then(() => console.log("💻 Mondodb Connected"))
   .catch((err) => console.error(err));
 

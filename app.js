@@ -5,6 +5,9 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var config = require("config");
 var mongoose = require("mongoose");
+var dotenv = require("dotenv");
+
+require("dotenv").config();
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/api/users");
@@ -13,7 +16,7 @@ var scholarshipsRouter = require("./routes/api/scholarships");
 var app = express();
 
 mongoose
-  .connect(config.get("db"))
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("💻 Mondodb Connected"))
   .catch((err) => console.error(err));
 

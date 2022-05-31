@@ -6,6 +6,7 @@ var logger = require("morgan");
 var config = require("config");
 var mongoose = require("mongoose");
 var dotenv = require("dotenv");
+const cors = require("cors");
 
 require("dotenv").config();
 

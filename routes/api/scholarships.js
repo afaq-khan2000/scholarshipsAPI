@@ -2,6 +2,7 @@ var express = require("express");
 const { Scholarship } = require("../../models/scholarship");
 var router = express.Router();
 const validateScholarship = require("../../middlewares/validateScholarship");
+const somMid = require("../../middlewares/somMid");
 
 /* GET users listing. */
 router.get("/", async function (req, res, next) {
@@ -11,7 +12,7 @@ router.get("/", async function (req, res, next) {
 
 // Get single
 
-router.get("/:id", async function (req, res, next) {
+router.get("/:id", somMid, async function (req, res, next) {
   try {
     let scholarship = await Scholarship.findById(req.params.id);
     if (!scholarship)

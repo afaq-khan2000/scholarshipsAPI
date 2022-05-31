@@ -5,7 +5,7 @@ const validateScholarship = require("../../middlewares/validateScholarship");
 const somMid = require("../../middlewares/somMid");
 
 /* GET users listing. */
-router.get("/", async function (req, res, next) {
+router.get("/", somMid, async function (req, res, next) {
   let scholarships = await Scholarship.find();
   res.send(scholarships);
 });

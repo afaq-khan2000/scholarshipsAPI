@@ -15,6 +15,11 @@ var scholarshipsRouter = require("./routes/api/scholarships");
 
 var app = express();
 
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("💻 Mondodb Connected"))

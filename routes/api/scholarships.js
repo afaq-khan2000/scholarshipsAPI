@@ -57,7 +57,7 @@ router.put("/:id", validateScholarship, async function (req, res, next) {
 
 //   Delete
 
-router.delete("/:id", async function (req, res, next) {
+router.delete("/:id", somMid, async function (req, res, next) {
   let scholarship = await Scholarship.findByIdAndDelete(req.params.id);
   res.send(scholarship);
 });
